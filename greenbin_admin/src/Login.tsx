@@ -9,8 +9,6 @@ const Login = () => {
   const auth = getAuth(app);
   const navigate = useNavigate();
   const [authing, setAuthing] = useState(false);
-  // true → Sign in, false → Sign up
-  const [isSignIn, setSignIn] = useState(true);
 
   const signInWithGoogle = async () => {
     setAuthing(true);
@@ -28,8 +26,6 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <div className="bg-white shadow-md rounded-lg px-8 py-6 w-full max-w-md">
-        {/* ... other JSX elements ... */}
-
         <div className="mt-4 text-center">
           <p className="text-2xl my-6">Sign In</p>
           <button

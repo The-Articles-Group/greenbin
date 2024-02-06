@@ -1,29 +1,21 @@
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import AuthRoute from "./AuthRoute";
 import Home from "./Home";
 import Providers from "./Providers";
 import Login from "./Login";
 import NotFound from "./NotFound";
+import NavBar from "./NavBar";
 
 function App() {
   return (
     <>
       <HelmetProvider>
         <Router>
-          {/* <div className="w-full h-20">
-            <h1>GreenBin</h1>
-            <NavLink
-              to="/"
-              className={`text-4xl${({ isActive, isPending }) =>
-                isPending ? "text-yellow-300 font-bold" : isActive ? "text-black" : ""}`}
-            >
-              Home
-            </NavLink>
-          </div> */}
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route element={<div></div>}>
+            <Route element={<NavBar />}>
               <Route
                 path="/home"
                 element={
