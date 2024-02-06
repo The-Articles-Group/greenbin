@@ -4,6 +4,7 @@ import AuthRoute from "./AuthRoute";
 import Home from "./Home";
 import Providers from "./Providers";
 import Login from "./Login";
+import NotFound from "./NotFound";
 
 function App() {
   return (
@@ -22,22 +23,25 @@ function App() {
           </div> */}
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route
-              path="/home"
-              element={
-                <AuthRoute>
-                  <Home />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/providers"
-              element={
-                <AuthRoute>
-                  <Providers />
-                </AuthRoute>
-              }
-            />
+            <Route element={<div></div>}>
+              <Route
+                path="/home"
+                element={
+                  <AuthRoute>
+                    <Home />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/providers"
+                element={
+                  <AuthRoute>
+                    <Providers />
+                  </AuthRoute>
+                }
+              />
+            </Route>
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </Router>
       </HelmetProvider>
