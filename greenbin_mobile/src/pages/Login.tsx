@@ -16,7 +16,7 @@ const Login = () => {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then((response) => {
         console.log(response.user.uid);
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
