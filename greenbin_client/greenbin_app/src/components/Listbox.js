@@ -12,7 +12,7 @@ export default function Listbox() {
         <p className='pickup-house'>JADJLHAID</p>
         <p className='pickup-name'>shankar</p>
         <p className='pickup-phone'>3654972534</p>
-        <button className='pickup-location' onclick={loc(lang,long)}>Map</button><br />
+        {/* <button className='pickup-location' onclick={loc(lang,long)}>Map</button><br /> */}
         <button>Picked</button><button>Missed</button>
       </div>
     </div>
