@@ -16,8 +16,10 @@
 }
 
 .login-title {
-  font-size: 24px;
+  padding-top: 50px;
+  font-size: 23px;
   margin-bottom: 20px;
+  transform: translateY(-10px);
 }
 
 .google-signin-button {

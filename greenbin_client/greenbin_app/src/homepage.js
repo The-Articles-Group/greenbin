@@ -8,8 +8,7 @@ export default function homepage() {
         <b>Green</b>bin
         </p>
         <div className="links">
-            <Link to="/" id='signin'>Sign in</Link>
-
+            <div ></div>
             <Link to="/ServiceProvider" id='provider'>register as collector</Link>
             <Link to="/Register" id='reg'>register as new User</Link>
         </div>

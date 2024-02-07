@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 // import App from './App';
 import Provider from "./ServiceProvider";
-import Home from "./Home";
+import Home from "./homepage";
 
 // styles
 import "./App.css";

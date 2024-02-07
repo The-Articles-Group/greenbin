@@ -29,6 +29,13 @@ const Login = () => {
   return (
     <div class="login-container">
       <div class="login-box">
+       
+    
+      <a href="/" className="logo">
+          <b id="green">Green</b>bin
+      </a>
+   
+
         <h2 class="login-title">Sign In</h2>
         <button class="google-signin-button" onClick={signInWithGoogle} disabled={authing}>
           <img class="google-icon" src={g} alt="G" />
