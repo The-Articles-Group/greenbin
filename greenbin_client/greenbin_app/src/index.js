@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './App';
 // import Register from './Register'
 // import Provider from './ServiceProvider'
-import Home from './components/home';
+import Home from './homepage';
 
 // styles
 import './App.css';
