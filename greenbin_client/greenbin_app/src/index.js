@@ -1,20 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowswerRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 // import App from './App';
-import Provider from './ServiceProvider'
+import Provider from "./ServiceProvider";
+import Home from "./Home";
 
 // styles
-import './App.css';
+import "./App.css";
 
-import {initializeApp} from "firebase/app";
-import firebaseConfig from './firebase';
+import { initializeApp } from "firebase/app";
+import firebaseConfig from "./firebase";
 
 const app = initializeApp(firebaseConfig);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <Provider/>
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
+    <Provider />
   </React.StrictMode>
 );
