@@ -16,7 +16,7 @@ export default function Collectionreq(){
     )
 }
 
-let statuses =["Waiting","Done","Assigned"];
-if(statusOfRequest.status === statuses[2]){
-    document.getElementById("Status").value = statuses[2] +'<br>'+ `Approx date ${statusOfRequest.date}`;
-}
+// let statuses =["Waiting","Done","Assigned"];
+// if(statusOfRequest.status === statuses[2]){
+//     document.getElementById("Status").value = statuses[2] +'<br>'+ `Approx date ${statusOfRequest.date}`;
+// }
