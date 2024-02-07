@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import AuthRoute from "./AuthRoute";
 import Home from "./Home";
-import Providers from "./Providers";
 import Login from "./Login";
 import NotFound from "./NotFound";
 import NavBar from "./NavBar";
+import Providers from "./Providers";
 
 function App() {
   return (

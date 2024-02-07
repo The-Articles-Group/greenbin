@@ -1,7 +1,8 @@
 import { getApp } from "firebase/app";
-import { collection, getDocs, getFirestore, query } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, getFirestore, query } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 interface ItemProps {
   count: number;
@@ -31,11 +32,20 @@ interface Wards {
   currentRequests: number;
 }
 
+interface Stats {
+  amountBio: number;
+  amountElectric: number;
+  amountPlastic: number;
+  missedPickups: number;
+  totalRequests: number;
+}
+
 const Home = () => {
   const app = getApp();
   const db = getFirestore(app);
   const [wards, setWards] = useState<Wards[] | null>(null);
   const [threshold, setThreshold] = useState(0);
+  const [stats, setStats] = useState<Stats | null>(null);
 
   useEffect(() => {
     const getWards = async () => {
@@ -50,37 +60,52 @@ const Home = () => {
           console.error("Error retrieving data:", error);
         });
     };
+    const getStats = async () => {
+      const docRef = doc(db, "stats", "stats");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const stats = docSnap.data() as Stats;
+        setStats(stats);
+      } else {
+        console.log("no stat doc!");
+      }
+    };
     getWards();
+    getStats();
   }, [setWards, db]);
 
   return (
     <div className="grid grid-cols-3 h-[90vh]">
+      <Helmet>
+        <title>GreenBin - Home</title>
+      </Helmet>
       <div className="col-span-2 m-auto">
         <h1 className="text-3xl pb-4">Stats</h1>
-        <p>Number of registered users: </p>
-        <p>Number of collection requests: </p>
-        <p>Average time to reach threshold: </p>
-        <p>Amount of Bio: </p>
-        <p>Amount of Plastic: </p>
-        <p>Amount of Eletronic: </p>
-        <p>Reduction in missed pickups: </p>
+        <p>Number of collection requests: {stats?.totalRequests}</p>
+        <p>Amount of Bio: {stats?.amountBio}</p>
+        <p>Amount of Plastic: {stats?.amountPlastic}</p>
+        <p>Amount of Eletronic: {stats?.amountElectric}</p>
+        <p>Missed pickups: {stats?.missedPickups}</p>H
       </div>
       <div className="h-full overflow-y-scroll w-full bg-slate-200">
         <h3 className="px-6 py-2 bg-slate-400">threshold reached</h3>
         {wards?.map((ward) =>
           ward.currentRequests > threshold ? (
             <Item count={ward.currentRequests} name={ward.name} threshold={threshold} />
-          ) : (
-            <span className="px-3 py-4">no over threshold wards</span>
-          )
+          ) : null
+        )}
+        {!wards?.some((ward) => ward.currentRequests > threshold) && (
+          <span className="px-3 my-10">no above threshold wards</span>
         )}
         <h3 className="px-6 py-2 bg-slate-400">threshold not reached</h3>
         {wards?.map((ward) =>
           ward.currentRequests < threshold ? (
             <Item count={ward.currentRequests} name={ward.name} threshold={threshold} />
-          ) : (
-            <span className="px-3 my-10">no below threshold wards</span>
-          )
+          ) : null
+        )}
+        {!wards?.some((ward) => ward.currentRequests < threshold) && (
+          <span className="px-3 my-10">no below threshold wards</span>
         )}
       </div>
     </div>
