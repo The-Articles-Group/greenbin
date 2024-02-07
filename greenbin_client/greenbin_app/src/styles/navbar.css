@@ -2,6 +2,7 @@
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  background-color: rgba(0, 128, 0, 0.27);
 }
 .button {
   padding: 0;
@@ -19,28 +20,32 @@
   font-size: 30px;
   color: black;
   font-weight:bold;
-  transform: translateY(14px);
+  transform: translateY(13px);
   b{
     color: green;
   }
 }
 #name{
+  font-weight: bold;
+  font-size: 15px;
   transform: translateX(-10px);
 }
 
 #profile{
+  font-size: 20px;
   position: relative;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  transform: translateY(8px);
+  transform: translateY(5px);
 
 }
 #photo{
-  transform: translateY(10px);
+  transform: translateY(2px);
   height: 30px;
   width: 30px;
   border-radius: 100%;
+  background-color: rgb(153, 86, 86);
   border: black solid 1px;
 }
 
