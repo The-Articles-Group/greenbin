@@ -51,6 +51,5 @@ root.render(
         </Routes>
       </Router>
     </HelmetProvider>
-    <Provider />
   </React.StrictMode>
 );
