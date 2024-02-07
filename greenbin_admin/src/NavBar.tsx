@@ -81,7 +81,7 @@ const NavBar = () => {
             </div>
           ) : (
             // Show placeholder or sign-in button here
-            <p>erorr</p>
+            <p>error</p>
           )}
         </div>
       </div>
