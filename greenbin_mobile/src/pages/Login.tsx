@@ -16,6 +16,8 @@ const Login = () => {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then((response) => {
         console.log(response.user.uid);
+        window.location.href = '/'
+        sessionStorage.setItem('uid', response.user.uid);
         navigate("/login");
       })
       .catch((error) => {
