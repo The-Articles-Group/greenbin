@@ -2,12 +2,33 @@
     font: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
+    padding-top: 100px;
+    font-size: 40px;
     b{
         color: green;
     }
 }
-
+.blob{
+    position: absolute;
+    transform: scale(2);
+    left: 0px;
+    top:0px;
+}
 .links{
+    padding: 20px;
+    margin: 30px;
+    border: solid black 1px;
+    color: rgb(7, 71, 7);
+    background-color: rgba(8, 174, 8, 0.444);
+    border-radius: 5px;
+}
+ 
+.links-box{
     display: grid;
-    
+}
+.home-page{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
