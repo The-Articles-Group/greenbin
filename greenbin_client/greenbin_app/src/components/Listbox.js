@@ -9,10 +9,10 @@ export default function Listbox() {
     <div className='list-container'>
      <div className="box">
         <div className='lists'>
-          <p className='pickup-area'>Nadakkav</p>
-          <p className='pickup-house'>JADJLHAID</p>
-          <p className='pickup-name'>shankar</p>
-          <p className='pickup-phone'>3654972534</p>
+          <span className='pickup-area'>Nadakkav</span>
+          <span className='pickup-house'>Jihad</span>
+          <span className='pickup-name'>shankar</span>
+          <span className='pickup-phone'>3654972534</span>
           {/* <button className='pickup-location' onclick={loc(lang,long)}>Map</button><br /> */}
           <button>Picked</button><button>Missed</button>
         </div>
